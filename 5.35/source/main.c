@@ -10,16 +10,21 @@ int main(void)
 }
 int f(int c)
 {
+	int temp, fib_1, fib_2, i;
 	if (c==0)
 	{
 		return 0;
 	}
-	if ((c==1)||(c==2))
+	if (c<=2)
 	{
 		return 1;
 	}
-	else
+	fib_1 = fib_2 = 1;
+	for (i=3;i<=c;i++)
 	{
-		return (f(c - 1) + f(c - 2));
+		temp = fib_1 + fib_2;
+		fib_2 = fib_1;
+		fib_1 = temp;
 	}
+	return temp;
 }
